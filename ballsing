@@ -304,6 +304,10 @@ function module.Damage(p1, p2)
     return nil
 end
 
+function module.Shake(val)
+    camShake:Shake(CameraShaker.Presets[val])
+end
+
 function module.playanim(at, tp, s, ds, dt, ft, fc, v, de, te)
     local Anim = Instance.new("Animation")
     Anim.AnimationId = "rbxassetid://" .. at
