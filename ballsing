@@ -1,0 +1,226 @@
+local CameraShaker = require(game.ReplicatedStorage.ClientModules.CameraShaker)
+local camera = game.Workspace.CurrentCamera
+local camShake = CameraShaker.new(Enum.RenderPriority.Camera.Value, function(shakeCf)
+    camera.CFrame = camera.CFrame * shakeCf
+end)
+camShake:Start()
+local plrs = game:GetService("Players")
+local rep = game:GetService("ReplicatedStorage")
+local remotes = rep:WaitForChild("Remotes")
+local plr = plrs.LocalPlayer
+local pass = getrenv()._G.Pass
+function p() print("lol") end
+function sh(val) camShake:Shake(CameraShaker.Presets[val]) end
+function createInstance(instance, properties)
+    local newInstance = Instance.new(instance)
+    for i,v in pairs(properties) do
+        pcall(function()newInstance[i]=v;end)
+    end
+    return newInstance
+end
+task.spawn(function()
+while task.wait() do
+if not plr.Backpack.Main.LockOnScript:FindFirstChild("Locked") or not plr.Backpack.Main.LockOnScript:FindFirstChild("Damaged") or not plr.Backpack.Main.LockOnScript:FindFirstChild("NetOwner") or not plr.Backpack.Main.LockOnScript:FindFirstChild("Hit") or not plr.Backpack.Main.LockOnScript:FindFirstChild("Grounded") or not plr.Backpack.Main.LockOnScript:FindFirstChild("StayGrounded") or not plr.Backpack.Main.LockOnScript:FindFirstChild("CombatInv") or not plr.Backpack.Main.LockOnScript:FindFirstChild("KnockBack") or not plr.Backpack.Main.LockOnScript:FindFirstChild("Inv") or not plr.Backpack.Main.LockOnScript:FindFirstChild("Walled") then
+    if not plr.Backpack.Main.LockOnScript:FindFirstChild("Locked") then
+    loc=Instance.new("BoolValue")
+    loc.Name = "Locked"
+    loc.Parent = plr.Backpack.Main.LockOnScript
+    loc.Value = false
+    task.spawn(function()
+        while task.wait() do
+            if plr.Backpack.Main.LockOnScript.LockOn.Value == nil then
+                loc.Value = false
+            else
+                loc.Value = true
+            end
+        end
+    end)
+    elseif not plr.Backpack.Main.LockOnScript:FindFirstChild("Damaged") then
+    dam=Instance.new("BoolValue")
+    dam.Name = "Damaged"
+    dam.Parent = plr.Backpack.Main.LockOnScript
+    dam.Value = false
+    task.spawn(function()
+        while task.wait() do
+            if getlock():FindFirstChild("Damaged") then
+                dam.Value = true
+            else
+                dam.Value = false
+            end
+        end
+    end)
+    elseif not plr.Backpack.Main.LockOnScript:FindFirstChild("NetOwner") then
+    net=Instance.new("BoolValue")
+    net.Name = "NetOwner"
+    net.Parent = plr.Backpack.Main.LockOnScript
+    net.Value = false
+    task.spawn(function()
+        while task.wait() do
+            if getlock() then
+                for i,v in pairs(getlock():GetChildren()) do
+                    if v.Name:match("netOwner") then
+                        net.Value = true
+                    else
+                        net.Value = false
+                    end
+                end
+            else
+                net.Value = false
+            end
+        end
+    end)
+    elseif not plr.Backpack.Main.LockOnScript:FindFirstChild("Hit") then
+    hur=Instance.new("BoolValue")
+    hur.Name = "Hit"
+    hur.Parent = plr.Backpack.Main.LockOnScript
+    hur.Value = false
+    task.spawn(function()
+        while task.wait() do
+            if getlock():FindFirstChild("Hit") then
+                hur.Value = true
+            else
+                hur.Value = false
+            end
+        end
+    end)
+    elseif not plr.Backpack.Main.LockOnScript:FindFirstChild("Grounded") then
+    gro=Instance.new("BoolValue")
+    gro.Name = "Grounded"
+    gro.Parent = plr.Backpack.Main.LockOnScript
+    gro.Value = false
+    task.spawn(function()
+        while task.wait() do
+            if getlock():FindFirstChild("Grounded") then
+                gro.Value = true
+            else
+                gro.Value = false
+            end
+        end
+    end)
+    elseif not plr.Backpack.Main.LockOnScript:FindFirstChild("StayGrounded") then
+    sgr=Instance.new("BoolValue")
+    sgr.Name = "StayGrounded"
+    sgr.Parent = plr.Backpack.Main.LockOnScript
+    sgr.Value = false
+    task.spawn(function()
+        while task.wait() do
+            if getlock():FindFirstChild("StayGrounded") then
+                sgr.Value = true
+            else
+                sgr.Value = false
+            end
+        end
+    end)
+    elseif not plr.Backpack.Main.LockOnScript:FindFirstChild("CombatInv") then
+    cinv=Instance.new("BoolValue")
+    cinv.Name = "CombatInv"
+    cinv.Parent = plr.Backpack.Main.LockOnScript
+    cinv.Value = false
+    task.spawn(function()
+        while task.wait() do
+            if getlock():FindFirstChild("CombatInv") then
+                cinv.Value = true
+            else
+                cinv.Value = false
+            end
+        end
+    end)
+    elseif not plr.Backpack.Main.LockOnScript:FindFirstChild("Inv") then
+    inv=Instance.new("BoolValue")
+    inv.Name = "Inv"
+    inv.Parent = plr.Backpack.Main.LockOnScript
+    inv.Value = false
+    task.spawn(function()
+        while task.wait() do
+            if getlock():FindFirstChild("Inv") then
+                inv.Value = true
+            else
+                inv.Value = false
+            end
+        end
+    end)
+    elseif not plr.Backpack.Main.LockOnScript:FindFirstChild("KnockBack") then
+    kn=Instance.new("BoolValue")
+    kn.Name = "KnockBack"
+    kn.Parent = plr.Backpack.Main.LockOnScript
+    kn.Value = false
+    task.spawn(function()
+        while task.wait() do
+            if getlock():FindFirstChild("KnockedBack") then
+                kn.Value = true
+            else
+                kn.Value = false
+            end
+        end
+    end)
+    elseif not plr.Backpack.Main.LockOnScript:FindFirstChild("Walled") then
+    wal=Instance.new("BoolValue")
+    wal.Name = "Walled"
+    wal.Parent = plr.Backpack.Main.LockOnScript
+    wal.Value = false
+    task.spawn(function()
+        while task.wait() do
+            if getlock():FindFirstChild("Walled") then
+                wal.Value = true
+            else
+                wal.Value = false
+            end
+        end
+    end)
+    end
+end
+end
+end)
+function getlock()
+    locked = plr.Backpack.Main.LockOnScript.Locked.Value
+	if not locked then
+		for i, v in pairs(workspace:GetChildren()) do
+			if v:FindFirstChild("HumanoidRootPart") and v ~= plr.Character.HumanoidRootPart.Parent and (plr.Character.HumanoidRootPart.Position + plr.Character.HumanoidRootPart.CFrame.lookVector * 5 - v.HumanoidRootPart.Position).magnitude <= 6 then
+			    return v
+			end
+		end
+	else
+		return plr.Backpack.Main.LockOnScript.LockOn.Value
+	end
+end
+function getbool(val)
+    return plr.Backpack.Main.LockOnScript[val].Value
+end
+local module = {}
+function module.Damage(p1, p2)
+    locked = plr.Backpack.Main.LockOnScript.Locked.Value
+    p2.BlockAble = false
+	p2.CombatInv = true
+	if not p2.DodgeAble then p2.DodgeAble = true end
+	if p2.Type == "Normal" or p2.Type == "Light" and p2.Damage >= 10.1 then p2.Damage = math.random(1,10) end
+	if not locked then
+		for i, v in pairs(workspace:GetChildren()) do
+			if v:FindFirstChild("HumanoidRootPart") and v ~= plr.Character.HumanoidRootPart.Parent and (plr.Character.HumanoidRootPart.Position + plr.Character.HumanoidRootPart.CFrame.lookVector * 5 - v.HumanoidRootPart.Position).magnitude <= 6 then
+			    --// I put these here so it doesn't play when ur not in range 🤓
+				if not p2.CustomSound then else if not p2.Sound == nil then p2.Sound = nil end local s = createInstance("Sound", {Volume = 1, Parent = plr.Character.HumanoidRootPart, Playing = true, Name = "Client", TimePosition = 0, SoundId = p2.CustomSound})  task.delay(1,function() game.Debris:AddItem(s,s.TimeLength + .5) end) end
+    if not p2.HurtCustom then else l = getlock() if l == nil then return end if not p2.HurtAnimation == nil then p2.HurtAnimation = nil end local s = createInstance("Animation", {AnimationId = "rbxassetid://"..p2.HurtCustom}) c = l.Humanoid:LoadAnimation(s) c:Play() end
+				if remotes.Damage:InvokeServer(pass, v, p2) then
+					return v
+				else
+					break
+				end
+			end
+		end
+	else
+		remotes.Damage:InvokeServer(pass, plr.Backpack.Main.LockOnScript.LockOn.Value, p2)
+	end
+	return nil
+end
+
+function module.playanim(at,tp,s,ds,dt,ft,fc,v,de,te)
+  local Anim = Instance.new("Animation")
+  Anim.AnimationId = "rbxassetid://"..at
+  local k = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(Anim)
+  k:Play();k.TimePosition = tp;k:AdjustSpeed(s)
+  --spawn(function() if at or tp or s or ds or dt or ft or fc == nil then return end end)
+  spawn(function() if ds == nil then dt=nil elseif ft == nil then fc=nil end end)
+  spawn(function() if ft then function f(m) fc(m) end if de then wait(te) f(v) elseif not de then f(v) end end end)
+  spawn(function() if ds then wait(dt) k:Stop() end end)
+  return k
+end
+return module
